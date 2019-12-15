@@ -9,9 +9,9 @@ export default new Vuetify({
     theme: {
     themes: {
       light: {
-        primary: colors.red.darken2, // #E53935
-        secondary: colors.black, // #FFCDD2
-        accent: colors.black, // #3F51B5
+        primary: colors.red.darken2,
+        secondary: colors.black,
+        accent: colors.black,
       },
     },
   },
