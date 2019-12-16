@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Tabs/>
-    <notifications group="foo" position="bottom right" max="3"/>
+    <notifications group="foo" position="bottom right" max="3" width="65%"/>
   </v-app>
 </template>
 

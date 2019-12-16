@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <v-app-bar dark color="primary">   
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        <v-text-field solo outlined maxlength="15" background-color="transparent"
-          rounded dense class="pt-6 pr-12 ma-6" label="Otsing">
+      <v-app-bar-nav-icon @click="sendNotification()"></v-app-bar-nav-icon>
+        <v-text-field outlined maxlength="15" background-color="transparent"
+          rounded dense class="pt-7 px-4 ma-6" label="Otsing">
         </v-text-field>
         <img src="../assets/logo.png" width="10%" alt="">
     </v-app-bar>
 
-    <v-tabs centered icons-and-text grow>
+    <v-tabs fixed centered icons-and-text grow>
 
       <v-tab>
         Avaleht
@@ -47,7 +47,7 @@
                     v-text="card.title">
                     </v-card-title>
                   </v-img>
-                  <span class="ma-1 pa-1 font-weight-bold d-flex justify-space-between">
+                  <span class="ma-1 pa-1 font-weight-light d-flex justify-space-between">
                     <div>{{card.subtitle}}</div>
                     <div>{{card.price}}</div>
                   </span>
@@ -94,6 +94,40 @@
         </v-card>
       </v-tab-item>
 
+      <v-tab-item>
+        <v-card flat>
+          <v-container>
+          <v-row>
+    
+            <v-col
+            class="mb-2"
+               v-for="(item, i) in categories"
+              :key="i"
+              :cols="item.flex">
+              <v-card @click="sendNotification()">
+                <div class="d-flex flex-no-wrap">
+                  <v-avatar
+                  class="ma-2"
+                    size="40"
+                    tile>
+                    <v-img :src="item.src"></v-img>
+                  </v-avatar>
+                  <div>
+                    <v-card-title
+                      class="ma-n1 font-weight-light"
+                      v-text="item.title">
+                    </v-card-title>
+    
+                  </div>
+    
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+        </v-card>
+      </v-tab-item>
+
     </v-tabs>
   </div>
 </template>
@@ -106,10 +140,8 @@ export default {
       sendNotification(){
         return this.$notify({
           group: 'foo',
-          title: 'Tähtis sõnum',
-          position: 'top left',
-          text: 'See rakendus on veel arendamisel',
-          max: 2,
+          title: 'Rakendus on arendamisel',
+          text: 'See funktsioon veel puudub',
         });
     },
     homepage: [
@@ -162,6 +194,54 @@ export default {
         src: 'data:image/png;base64,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',
         title: 'Seppälä',
         location: 'Tallinn Tartu Viljandi',
+      },
+      {
+        color: 'darkgrey',
+        src: 'https://d2d3l62ibcj1br.cloudfront.net/hyperin-portal/imageserver/tenants/52826/rademar.jpg',
+        title: 'Rademar',
+        location: 'Tallinn Narva',
+      },
+    ],
+    categories: [
+      { title: 'Püksid', 
+        src: 'https://icon-library.net/images/pants-icon-png/pants-icon-png-2.jpg', 
+        flex: 6 
+      },
+      { title: 'Särgid', 
+        src: 'https://icon-library.net/images/icon-shirt/icon-shirt-5.jpg', 
+        flex: 6 
+      },
+      { title: 'Kleidid', 
+        src: 'https://icon-library.net/images/105283.svg.svg', 
+        flex: 6 
+      },
+      { title: 'Seelikud', 
+        src: 'https://icon-library.net/images/skirt-icon/skirt-icon-21.jpg', 
+        flex: 6 
+      },
+      { title: 'Mütsid', 
+        src: 'https://icon-library.net/images/baseball-hat-icon/baseball-hat-icon-20.jpg', 
+        flex: 6 
+      },
+      { title: 'Joped', 
+        src: 'https://icon-library.net/images/207687.svg.svg', 
+        flex: 6 
+      },
+      { title: 'Jalatsid', 
+        src: 'https://icon-library.net/images/converse-icon/converse-icon-18.jpg', 
+        flex: 6 
+      },
+      { title: 'Sokid', 
+        src: 'https://icon-library.net/images/sock-icon/sock-icon-21.jpg', 
+        flex: 6 
+      },
+      { title: 'Aluspesu', 
+        src: 'https://icon-library.net/images/panty-icon/panty-icon-17.jpg', 
+        flex: 6 
+      },
+      { title: 'Sport', 
+        src: 'https://icon-library.net/images/v-20-512_3864.png', 
+        flex: 6 
       },
     ],
   }),
