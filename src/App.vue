@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Tabs/>
+    <notifications group="foo" position="bottom right" max="3"/>
   </v-app>
 </template>
 
@@ -18,4 +19,5 @@ export default {
     //
   }),
 };
+
 </script>
