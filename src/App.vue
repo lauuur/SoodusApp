@@ -1,18 +1,19 @@
 <template>
   <v-app>
-    <router-view/>
-    <notifications group="foo" position="bottom right" max="3" width="65%"/>
+    <vue-page-transition name="">
+      <router-view/>
+    </vue-page-transition>
+    <notifications group="foo" position="top center" max="3" width="65%"/>
   </v-app>
 </template>
 
 <script>
-// import Tabs from './components/Tabs';
 
 export default {
   name: 'App',
 
   components: {
-    // Tabs,
+    //
   },
 
   data: () => ({
