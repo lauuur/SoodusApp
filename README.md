@@ -1,3 +1,3 @@
 ### Soodus
 
-Alpha version available at:
+Alpha version available at: soodus.netlify.com
