@@ -79,7 +79,8 @@
           </v-container>
         </v-card>
 
-        <v-bottom-navigation fixed
+        <v-bottom-navigation 
+            fixed
             :value="activeBtn"
             grow
             color="primary">

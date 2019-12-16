@@ -73,6 +73,7 @@
 
 
         <v-bottom-navigation
+            fixed
             :value="activeBtn"
             grow
             color="primary">
@@ -147,8 +148,8 @@ a{
   max-width: 550px;
   background-color: white;
 }
-.v-bottom-navigation{
+/* .v-bottom-navigation{
   position: absolute;
   bottom: 0
-}
+} */
 </style>
