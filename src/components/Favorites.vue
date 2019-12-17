@@ -20,23 +20,21 @@
   
         <v-list dense>
   
-          <v-list-item
+          <v-list-item :to="item.route"
             v-for="item in sidebar"
             :key="item.title"
             :route="item.route"
-            link
-          >
+            link>
             <v-list-item-icon class="ma-3">
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
-            <router-link :to="item.route">
             <v-list-item-content class="black--text">
               <v-list-item-title >
                 {{ item.title }}
               </v-list-item-title>
             </v-list-item-content>
-          </router-link>
           </v-list-item>
+          
         </v-list>
       </v-navigation-drawer>
 
