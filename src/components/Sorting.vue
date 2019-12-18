@@ -146,8 +146,8 @@ a{
   max-width: 550px;
   background-color: white;
 }
-/* .v-bottom-navigation{
-  position: absolute;
-  bottom: 0
-} */
+.v-bottom-navigation{
+  min-width: 333px;
+  max-width: 550px;
+}
 </style>

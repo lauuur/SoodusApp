@@ -186,4 +186,8 @@ a{
 .router-link a{
     text-decoration: none !important;
 }
+.v-bottom-navigation{
+  min-width: 333px;
+  max-width: 550px;
+}
 </style>
