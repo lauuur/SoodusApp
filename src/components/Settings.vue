@@ -38,10 +38,13 @@
         </v-list>
       </v-navigation-drawer>
 
-    <v-app-bar dark color="primary">   
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <h2 class="mx-12">Seaded</h2> <v-spacer/>
-        <img src="../assets/logo.png" width="10%" alt="" class="ma-1">
+    <v-app-bar class="mb-2">   
+      <v-app-bar-nav-icon color="secondary" @click.stop="drawer = !drawer"/>
+      <v-btn @click="$router.go(-1)" class="ma-2" icon>
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
+      <h2 class="mx-8">Seaded</h2> <v-spacer/>
+      <img src="../assets/logo.png" width="10%" alt="" class="ma-1">
     </v-app-bar>
 
 
@@ -50,33 +53,16 @@
           <v-row>
               <v-col>
 
-                  <v-card shaped cols:12 class="mb-7">
-                <div class="flex-no-wrap headline ma-3">
+                <v-card shaped cols:6 class="mb-7">
+                  <div class="flex-no-wrap headline ma-3">
                     <span class="d-flex justify-space-between">
-                    <v-card-title>
-                    Eelistatud linn:
-                    </v-card-title>
-                    <div>
-                    <v-menu
-                    v-model="showMenu"
-                    absolute
-                    offset-y>
-                    <template v-slot:activator="{ on }">
-                    <v-btn class="ma-5" v-on="on">{{chosenCity}}</v-btn>
-                    </template>
-            
-                    <v-list>
-                    <v-list-item
-                        v-for="(item, index) in cities"
-                        :key="index">
-                        <v-list-item-title>{{item}}</v-list-item-title>
-                    </v-list-item>
-                    </v-list>
-                </v-menu>
-                </div>
-                </span>
-            </div>
-            </v-card>
+                      <v-card-title class="flex-no-wrap">
+                        Eelistatud linn
+                      </v-card-title>
+                      <v-select style="width:30%" :items="cities" class="mt-5" label="Tallinn" outlined/>
+                    </span>
+                  </div>
+                </v-card>
 
                 <v-card shaped cols:12 class="mb-7">
                 <div class="flex-no-wrap headline ma-3">
@@ -103,16 +89,14 @@
                     </span>
                 </div>
                 </v-card>
-
-        </v-col>
-    </v-row>
-    </v-container>
-    </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
 
 
         <v-bottom-navigation
             fixed
-            :value="activeBtn"
             grow
             color="primary">
             <v-btn to="/">
@@ -156,10 +140,10 @@ export default {
         icon: 'mdi-star-outline',
         route: '/favorites'
       },
-      { title: 'Sorteerimine',
-        icon: 'mdi-sort',
-        route: '/sort'
-      },
+      // { title: 'Sorteerimine',
+      //   icon: 'mdi-sort',
+      //   route: '/sort'
+      // },
       { title: 'Seaded',
         icon: 'mdi-settings-outline',
         route: '/settings'

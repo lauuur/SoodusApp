@@ -11,7 +11,6 @@ import Categories from "../components/Categories.vue"
 import Settings from "../components/Settings.vue"
 import Favorites from "../components/Favorites.vue"
 import Contact from "../components/Contact.vue"
-import Sorting from "../components/Sorting.vue"
 
 Vue.use(VueRouter)
 
@@ -67,12 +66,6 @@ export default new VueRouter({
             path: '/favorites',
             name: 'Favorites',
             component: Favorites,
-            meta: { transition: 'fade' },
-        },
-        {
-            path: '/sort',
-            name: 'sorting',
-            component: Sorting,
             meta: { transition: 'fade' },
         },
         {

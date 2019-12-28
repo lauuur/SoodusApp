@@ -38,9 +38,9 @@
         </v-list>
       </v-navigation-drawer>
 
-    <v-app-bar dark color="primary">   
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-text-field outlined maxlength="15" background-color="transparent"
+    <v-app-bar class="mb-2">   
+      <v-app-bar-nav-icon color="secondary" @click.stop="drawer = !drawer"/>
+        <v-text-field outlined clearable maxlength="15" background-color="transparent"
           rounded dense class="pt-7 px-4 ma-6" label="Otsing">
         </v-text-field>
         <img src="../assets/logo.png" width="10%" alt="" class="ma-1">
@@ -56,7 +56,7 @@
                 v-for="card in homepage"
                 :key="card.title"
                 :cols="card.flex">
-                <v-card shaped @click="sendNotification()">
+                <v-card class="mt-n3" shaped @click="sendNotification()">
                   <v-img
                     :src="card.src"
                     class="white--text"
@@ -146,10 +146,10 @@ export default {
         icon: 'mdi-star-outline',
         route: '/favorites'
       },
-      { title: 'Sorteerimine',
-        icon: 'mdi-sort',
-        route: '/sort'
-      },
+      // { title: 'Sorteerimine',
+      //   icon: 'mdi-sort',
+      //   route: '/sort'
+      // },
       { title: 'Seaded',
         icon: 'mdi-settings-outline',
         route: '/settings'
@@ -176,10 +176,6 @@ a{
   max-width: 550px;
   background-color: white;
 }
-/* .v-bottom-navigation{
-  position: absolute;
-  bottom: 0
-} */
 .v-application{
   color: black;
 }

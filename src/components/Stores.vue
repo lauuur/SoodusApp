@@ -38,8 +38,8 @@
         </v-list>
       </v-navigation-drawer>
 
-    <v-app-bar dark color="primary">   
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar class="mb-2">   
+      <v-app-bar-nav-icon color="secondary" @click.stop="drawer = !drawer"/>
         <v-text-field outlined maxlength="15" background-color="transparent"
           rounded dense class="pt-7 px-4 ma-6" label="Otsing">
         </v-text-field>
@@ -163,10 +163,10 @@ export default {
         icon: 'mdi-star-outline',
         route: '/favorites'
       },
-      { title: 'Sorteerimine',
-        icon: 'mdi-sort',
-        route: '/sort'
-      },
+      // { title: 'Sorteerimine',
+      //   icon: 'mdi-sort',
+      //   route: '/sort'
+      // },
       { title: 'Seaded',
         icon: 'mdi-settings-outline',
         route: '/settings'

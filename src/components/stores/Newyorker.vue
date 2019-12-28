@@ -38,10 +38,13 @@
         </v-list>
       </v-navigation-drawer>
 
-    <v-app-bar dark color="primary">   
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <h2 class="mx-12">New Yorker</h2> <v-spacer/>
-        <img src="../../assets/logo.png" width="10%" alt="" class="ma-1">
+    <v-app-bar class="mb-2">   
+      <v-app-bar-nav-icon color="secondary" @click.stop="drawer = !drawer"/>
+      <v-btn @click="$router.go(-1)" class="ma-2" icon>
+          <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
+      <h2 class="mx-6">New Yorker</h2> <v-spacer/>
+      <img src="../../assets/logo.png" width="10%" alt="" class="ma-1">
     </v-app-bar>
 
         <v-card flat>
@@ -105,7 +108,7 @@ export default {
   },
   data: () => ({
     drawer: null,
-    activeBtn: 0,
+    // activeBtn: 0,
     sendNotification(){
       return this.$notify({
         group: 'foo',
@@ -169,8 +172,5 @@ a{
 .v-bottom-navigation{
   min-width: 333px;
   max-width: 550px;
-}
-img{
-  float: right;
 }
 </style>
