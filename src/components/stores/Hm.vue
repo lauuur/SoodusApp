@@ -40,77 +40,42 @@
 
     <v-app-bar dark color="primary">   
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <h2 class="mx-12">Seaded</h2> <v-spacer/>
-        <img src="../assets/logo.png" width="10%" alt="" class="ma-1">
+        <h2 class="mx-12">H&M</h2> <v-spacer/>
+        <img src="../../assets/logo.png" width="10%" alt="" class="ma-1">
     </v-app-bar>
 
-
         <v-card flat>
-          <v-container>
-          <v-row>
-              <v-col>
-
-                  <v-card shaped cols:12 class="mb-7">
-                <div class="flex-no-wrap headline ma-3">
-                    <span class="d-flex justify-space-between">
-                    <v-card-title>
-                    Eelistatud linn:
+          <v-container 
+          flat
+          class="mx-auto"
+          max-width="500">
+            <v-row>
+              <v-col
+                v-for="card in storeItems"
+                :key="card.title"
+                :cols="card.flex">
+                <v-card shaped @click="sendNotification()">
+                  <v-img
+                    :src="card.src"
+                    class="white--text"
+                    gradient="to top, rgba(0,0,0,0), rgba(0,0,0,0.2)"
+                    height="200px">
+                    <v-card-title 
+                    class="font-italic font-weight-thin mt-n3" 
+                    v-text="card.title">
                     </v-card-title>
-                    <div>
-                    <v-menu
-                    v-model="showMenu"
-                    absolute
-                    offset-y>
-                    <template v-slot:activator="{ on }">
-                    <v-btn class="ma-5" v-on="on">{{chosenCity}}</v-btn>
-                    </template>
-            
-                    <v-list>
-                    <v-list-item
-                        v-for="(item, index) in cities"
-                        :key="index">
-                        <v-list-item-title>{{item}}</v-list-item-title>
-                    </v-list-item>
-                    </v-list>
-                </v-menu>
-                </div>
-                </span>
-            </div>
-            </v-card>
-
-                <v-card shaped cols:12 class="mb-7">
-                <div class="flex-no-wrap headline ma-3">
-                    <span class="d-flex justify-space-between">
-                    <v-card-title>
-                    Must teema
-                    </v-card-title>
-                    <div class="ma-1">
-                    <v-switch color="primary"></v-switch>
-                    </div>
-                    </span>
-                </div>
+                  </v-img>
+                  <span class="ma-1 pa-1 font-weight-light d-flex justify-space-between">
+                    <div>{{card.subtitle}}</div>
+                    <div class="mr-1">{{card.price}}</div>
+                  </span>
                 </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
 
-                <v-card shaped cols:12 class="mb-7">
-                <div class="flex-no-wrap headline ma-3">
-                    <span class="d-flex justify-space-between">
-                    <v-card-title>
-                    Pakkumiste teavitused
-                    </v-card-title>
-                    <div class="ma-1">
-                    <v-switch color="primary"></v-switch>
-                    </div>
-                    </span>
-                </div>
-                </v-card>
-
-        </v-col>
-    </v-row>
-    </v-container>
-    </v-card>
-
-
-        <v-bottom-navigation
+        <v-bottom-navigation 
             fixed
             :value="activeBtn"
             grow
@@ -139,11 +104,8 @@ export default {
   mounted(){
   },
   data: () => ({
-    chosenCity: "Tallinn",
     drawer: null,
-    // handleSelectItem(item){
-    // this.chosenCity = item.title;
-    // },
+    activeBtn: 0,
     sendNotification(){
       return this.$notify({
         group: 'foo',
@@ -151,6 +113,18 @@ export default {
         text: 'See funktsioon veel puudub',
       });
     },
+    storeItems: [
+      { src: 'https://lp2.hm.com/hmgoepprod?set=source[/92/2b/922b06301f34dee4f347ee62803ed84b3c5599f5.jpg],origin[dam],category[],type[DESCRIPTIVESTILLLIFE],res[s],hmver[1]&call=url[file:/product/main]', 
+        subtitle: "Kampsun",
+        price: "10.99€",
+        flex: 6 
+      },
+      { src: 'https://lp2.hm.com/hmgoepprod?set=source[/7f/1d/7f1d7bf8899dc06b99027bd45daf7c79c953fa71.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[s],hmver[1]&call=url[file:/product/main]', 
+        subtitle: "T-särk",
+        price: "9.99€",
+        flex: 6 
+      },
+    ],
     sidebar: [
       { title: 'Lemmikud',
         icon: 'mdi-star-outline',
@@ -169,7 +143,6 @@ export default {
         route: '/contact'
       },
     ],
-    cities: ['Tallinn', 'Tartu', 'Pärnu', 'Narva'],
   }),
 }
 </script>
@@ -177,6 +150,7 @@ export default {
 <style>
 a{  
   text-decoration: none;
+  color: black;
 }
 .card-wrapper{
   padding: 20px
@@ -186,8 +160,17 @@ a{
   max-width: 550px;
   background-color: white;
 }
+.v-application{
+  color: black;
+}
+.router-link a{
+    text-decoration: none !important;
+}
 .v-bottom-navigation{
   min-width: 333px;
   max-width: 550px;
+}
+img{
+  float: right;
 }
 </style>

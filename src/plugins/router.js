@@ -2,6 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Homepage from "../components/Homepage.vue"
 import Stores from "../components/Stores.vue"
+import Newyorker from "../components/stores/Newyorker.vue"
+import Hm from "../components/stores/Hm.vue"
+import Zara from "../components/stores/Zara.vue"
+import Seppala from "../components/stores/Seppala.vue"
+import Rademar from "../components/stores/Rademar.vue"
 import Categories from "../components/Categories.vue"
 import Settings from "../components/Settings.vue"
 import Favorites from "../components/Favorites.vue"
@@ -26,6 +31,31 @@ export default new VueRouter({
             path: '/categories',
             name: 'categories',
             component: Categories
+        },
+        {
+            path: '/newyorker',
+            name: 'newyorker',
+            component: Newyorker
+        },
+        {
+            path: '/hm',
+            name: 'hm',
+            component: Hm
+        },
+        {
+            path: '/zara',
+            name: 'zara',
+            component: Zara
+        },
+        {
+            path: '/seppala',
+            name: 'seppala',
+            component: Seppala
+        },
+        {
+            path: '/rademar',
+            name: 'rademar',
+            component: Rademar
         },
         {
             path: '/settings',

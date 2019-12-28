@@ -1,6 +1,10 @@
 <template>
   <div id="app">
 
+
+    <!-- XXXXXXX -->
+
+
     <v-navigation-drawer
         v-model="drawer"
         absolute
@@ -40,10 +44,8 @@
 
     <v-app-bar dark color="primary">   
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-text-field outlined maxlength="15" background-color="transparent"
-          rounded dense class="pt-7 px-4 ma-6" label="Otsing">
-        </v-text-field>
-        <img src="../assets/logo.png" width="10%" alt="">
+        <h2 class="mx-12">Sorteerimine</h2> <v-spacer/>
+        <img src="../assets/logo.png" width="10%" alt="" class="ma-1">
     </v-app-bar>
 
 

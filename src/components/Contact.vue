@@ -40,10 +40,8 @@
 
     <v-app-bar dark color="primary">   
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-text-field outlined maxlength="15" background-color="transparent"
-          rounded dense class="pt-7 px-4 ma-6" label="Otsing">
-        </v-text-field>
-        <img src="../assets/logo.png" width="10%" alt="">
+        <h2 class="mx-12">Kontakt</h2> <v-spacer/>
+        <img src="../assets/logo.png" width="10%" alt="" class="ma-1">
     </v-app-bar>
 
 
@@ -55,14 +53,26 @@
                 <v-card shaped cols:12 class="mb-7">
                 <div class="flex-no-wrap headline ma-3">
                     <span class="d-flex justify-space-between">
-                    <v-card-title>
-                    Kontaktinfo(arendamisel)
-                    </v-card-title>
+                    <v-card flat>
+                      <v-card-subtitle>
+                        <b>Soodus</b> on rakendus, mis kogub kokku Eesti riidepoodide sooduspakkumised ühte kohta.
+                        <br>Kiirelt ja kergelt on võimalik vaadata poodide või kategooriate kaupa tooteid või kasutada otsingut.
+                      </v-card-subtitle>
+                    </v-card>
                     <div class="ma-1">
                     </div>
                     </span>
                 </div>
                 </v-card>
+
+                <v-card shaped cols:12 class="mb-7">
+                  <div class="flex-no-wrap headline ma-3">
+                      <v-card-subtitle>
+                        Küsimuste või tagasiside jaoks võite kirjutada meilile:
+                        <b>soodusapp@gmail.com</b> 
+                      </v-card-subtitle>
+                      </div>
+                    </v-card>
 
         </v-col>
     </v-row>
@@ -149,5 +159,9 @@ a{
 .v-bottom-navigation{
   min-width: 333px;
   max-width: 550px;
+}
+img{
+  position: relative;
+  float: right;
 }
 </style>
